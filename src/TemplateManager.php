@@ -84,4 +84,11 @@ class TemplateManager
 
         return $text;
     }
+
+    private function computeParameter($text, $key, $value) {
+        if(strpos($text, $key) !== false) {
+            $text = str_replace($key, $value, $text);
+        }
+        return $text;
+    }
 }
