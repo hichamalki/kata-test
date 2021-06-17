@@ -2,6 +2,12 @@
 
 class TemplateManager
 {
+    /**
+     * Returns a specific template with the data passed in arguments
+     * @param Template $template
+     * @param array $data
+     * @return string
+     */
     public function getTemplateComputed(Template $template, array $data)
     {
         if (!$template) {
@@ -15,6 +21,12 @@ class TemplateManager
         return $replaced;
     }
 
+    /**
+     * Computes and returns the text by replacing the parameters by its values passed in arguments
+     * @param string $text
+     * @param array $data
+     * @return string
+     */
     private function computeText($text, array $data)
     {
 
@@ -56,6 +68,13 @@ class TemplateManager
         return $text;
     }
 
+    /**
+     *  Computes a text by replacing a specific parameter key by its value
+     * @param string $text
+     * @param string $key
+     * @param string $value
+     * @return string
+     */
     private function computeParameter($text, $key, $value) {
         if(strpos($text, $key) !== false) {
             $text = str_replace($key, $value, $text);
